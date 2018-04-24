@@ -29,7 +29,7 @@ namespace WebService
         public List<string> listar()
         {
             List<string> listarAlumno = new List<string>();
-            string ruta = "Server=localhost; database=colegio; password=admin; user=root";
+            string ruta = "Server=localhost; database=colegio; password=admin; user=roota";
             MySqlConnection conexion = new MySqlConnection(ruta);
             conexion.Open();
             MySqlCommand command = conexion.CreateCommand();
