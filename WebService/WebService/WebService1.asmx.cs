@@ -29,11 +29,11 @@ namespace WebService
         public List<string> listar()
         {
             List<string> listarAlumno = new List<string>();
-            string ruta = "Server=localhost; database=colegio; password=admin; user=roota";
+            string ruta = "Server=localhost; database=mydb; password=admin; user=roota";
             MySqlConnection conexion = new MySqlConnection(ruta);
             conexion.Open();
             MySqlCommand command = conexion.CreateCommand();
-            command.CommandText = ("Select * from alumnos");
+            command.CommandText = ("Select * from ordenservicio");
             command.Connection = conexion;
             MySqlDataReader reader = command.ExecuteReader();
             while (reader.Read())
