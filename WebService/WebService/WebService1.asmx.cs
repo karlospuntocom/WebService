@@ -49,26 +49,23 @@ namespace WebService
         }
 
         [WebMethod]
-        public List<string> agregarOt(int id, string idCliente, string fechaHora, string descripcion, int cantidadProductos, int costoTotal)
+        public string agregarOt(int id, string idCliente, string fechaHora, string descripcion, int cantidadProductos, int costoTotal)
         {
-            List<string> listarAlumno = new List<string>();
+            string mensaje = "No se pudo registrar";
             string ruta = "Server=localhost; database=colegio; password=admin; user=roota";
             MySqlConnection conexion = new MySqlConnection(ruta);
             conexion.Open();
             MySqlCommand command = conexion.CreateCommand();
-            command.CommandText = ("Select * from alumnos");
+            command.CommandText = ("INSERT INTO `alumnos`(`id`, `nombre`, `apellido`, `edad`) VALUES ("+id+","+idCliente+","+fechaHora+","+descripcion+","+cantidadProductos+","+costoTotal+")");
             command.Connection = conexion;
-            MySqlDataReader reader = command.ExecuteReader();
-            while (reader.Read())
+            command.ExecuteNonQuery();
+            if (command.ExecuteNonQuery()>0)
             {
-                listarAlumno.Add(reader.GetString(0).ToString());
-                listarAlumno.Add(reader.GetString(1).ToString());
-                listarAlumno.Add(reader.GetString(2).ToString());
-                listarAlumno.Add(reader.GetString(3).ToString());
+                mensaje = "Reigstro exitoso!";
             }
             command.Connection.Close();
 
-            return listarAlumno;
+            return mensaje;
         }
     }
 }
