@@ -47,5 +47,28 @@ namespace WebService
 
             return listarAlumno;
         }
+
+        [WebMethod]
+        public List<string> agregarOt(int id, string idCliente, string fechaHora, string descripcion, int cantidadProductos, int costoTotal)
+        {
+            List<string> listarAlumno = new List<string>();
+            string ruta = "Server=localhost; database=colegio; password=admin; user=roota";
+            MySqlConnection conexion = new MySqlConnection(ruta);
+            conexion.Open();
+            MySqlCommand command = conexion.CreateCommand();
+            command.CommandText = ("Select * from alumnos");
+            command.Connection = conexion;
+            MySqlDataReader reader = command.ExecuteReader();
+            while (reader.Read())
+            {
+                listarAlumno.Add(reader.GetString(0).ToString());
+                listarAlumno.Add(reader.GetString(1).ToString());
+                listarAlumno.Add(reader.GetString(2).ToString());
+                listarAlumno.Add(reader.GetString(3).ToString());
+            }
+            command.Connection.Close();
+
+            return listarAlumno;
+        }
     }
 }
