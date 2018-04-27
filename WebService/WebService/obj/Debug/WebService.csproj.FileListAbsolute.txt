@@ -64,10 +64,10 @@ C:\xampp\htdocs\WebService\WebService\WebService\bin\WebService.dll.config
 C:\xampp\htdocs\WebService\WebService\WebService\bin\WebService.dll
 C:\xampp\htdocs\WebService\WebService\WebService\bin\WebService.pdb
 C:\xampp\htdocs\WebService\WebService\WebService\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
-C:\xampp\htdocs\WebService\WebService\WebService\bin\MySql.Data.dll
 C:\xampp\htdocs\WebService\WebService\WebService\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
 C:\xampp\htdocs\WebService\WebService\WebService\bin\MySql.Data.xml
 C:\xampp\htdocs\WebService\WebService\WebService\obj\Debug\WebService.csprojResolveAssemblyReference.cache
 C:\xampp\htdocs\WebService\WebService\WebService\obj\Debug\WebService.csproj.CoreCompileInputs.cache
 C:\xampp\htdocs\WebService\WebService\WebService\obj\Debug\WebService.dll
 C:\xampp\htdocs\WebService\WebService\WebService\obj\Debug\WebService.pdb
+C:\xampp\htdocs\WebService\WebService\WebService\obj\Debug\WebService.csproj.CopyComplete

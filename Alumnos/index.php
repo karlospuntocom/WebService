@@ -7,7 +7,7 @@ $resultado = $cliente->call(listar);
 $columnas = ceil(count($resultado,1)/count($resultado,0))-1;
 
 include 'vista/header.php';
-include 'vista/alumno.php';
+include 'vista/orden.php';
 include 'vista/footer.php';
 
 ?>

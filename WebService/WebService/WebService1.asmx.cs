@@ -28,7 +28,7 @@ namespace WebService
         [WebMethod]
         public List<string> listar()
         {
-            List<string> listarAlumno = new List<string>();
+            List<string> listarOrden = new List<string>();
             string ruta = "Server=localhost; database=mydb; password=admin; user=roota";
             MySqlConnection conexion = new MySqlConnection(ruta);
             conexion.Open();
@@ -38,21 +38,43 @@ namespace WebService
             MySqlDataReader reader = command.ExecuteReader();
             while (reader.Read())
             {
-                listarAlumno.Add(reader.GetString(0).ToString());
-                listarAlumno.Add(reader.GetString(1).ToString());
-                listarAlumno.Add(reader.GetString(2).ToString());
-                listarAlumno.Add(reader.GetString(3).ToString());
+                listarOrden.Add(reader.GetString(0).ToString());
+                listarOrden.Add(reader.GetString(1).ToString());
+                listarOrden.Add(reader.GetString(2).ToString());
+                listarOrden.Add(reader.GetString(3).ToString());
+                listarOrden.Add(reader.GetString(4).ToString());
+                listarOrden.Add(reader.GetString(5).ToString());
             }
             command.Connection.Close();
 
-            return listarAlumno;
+            return listarOrden;
         }
 
         [WebMethod]
-        public string agregarOt(int id, string idCliente, string fechaHora, string descripcion, int cantidadProductos, int costoTotal)
+        public string eliminar(int id)
+        {
+            string mensaje = "No se pudo eliminar";
+            string ruta = "Server=localhost; database=mydb; password=admin; user=roota";
+            MySqlConnection conexion = new MySqlConnection(ruta);
+            conexion.Open();
+            MySqlCommand command = conexion.CreateCommand();
+            command.CommandText = ("DELETE FROM `ordenservicio` WHERE `id` = " + id);
+            command.Connection = conexion;
+            command.ExecuteNonQuery();
+            if (command.ExecuteNonQuery() > 0)
+            {
+                mensaje = "Se ha eliminado exitosamente!";
+            }
+            command.Connection.Close();
+
+            return mensaje;
+        }
+
+        [WebMethod]
+        public string agregar(int id, string idCliente, string fechaHora, string descripcion, int cantidadProductos, int costoTotal)
         {
             string mensaje = "No se pudo registrar";
-            string ruta = "Server=localhost; database=colegio; password=admin; user=roota";
+            string ruta = "Server=localhost; database=mydb; password=admin; user=roota";
             MySqlConnection conexion = new MySqlConnection(ruta);
             conexion.Open();
             MySqlCommand command = conexion.CreateCommand();
