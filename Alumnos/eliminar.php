@@ -1,5 +1,5 @@
 <?php
-$id= $_GET["id"];
+$id= array('id' =>$_GET["id"]);
 echo $id;
 require_once 'lib/nusoap.php';
 
@@ -8,4 +8,6 @@ $cliente = new nusoap_client($wsdl, true);
 $resultado = $cliente->call('eliminar', $id);
 
 print_r ($resultado);
+
+include 'index.php';
 ?>
